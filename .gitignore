@@ -1,0 +1,8 @@
+cmake-build-debug
+cmake-build-release
+CMakeFiles
+CMakeCache.txt
+c_vector
+Makefile
+*.cmake
+.idea
