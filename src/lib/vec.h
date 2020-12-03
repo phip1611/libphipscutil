@@ -88,6 +88,26 @@ void vec_free(struct vec * vec, void (item_free_fn)(void*));
  */
 void vec_clear(struct vec * vec, uint8_t overwrite_mem);
 
+/**
+ * Iterates through a vector. The var "entry_var_name" will be of type
+ * ("type" *). The index_var_name will show the number of the current iteration.
+ *
+ * @param vec_var_name Name of the vector
+ * @param type Type stored inside the vector (needed for type safety here)
+ * @param entry_var_name Name of the var via that you can access the pointer to the current item
+ * @param index_var_name  Name of the var via that you can access the iteration number
+ */
+#define vec_foreach(vec_var_name, type, entry_var_name, index_var_name) \
+    type * entry_var_name;                         \
+    uint64_t index_var_name;                           \
+    for (index_var_name = 0, entry_var_name = (type*)vec_get(vec_var_name, index_var_name); \
+        index_var_name < vec_var_name->size;             \
+        index_var_name++, entry_var_name = (type*)vec_get(vec_var_name, index_var_name))
+
+
+
+
+
 // Getter for current size (number of items)
 uint64_t vec_get_size(struct vec * vec);
 
