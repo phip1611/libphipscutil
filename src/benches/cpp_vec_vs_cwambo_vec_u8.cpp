@@ -6,7 +6,7 @@
 // YOU GET COMPARABLE RESULTS.
 
 extern "C" {
-    #include "cwambo.h"
+    #include "phipscutil.h"
 }
 
 uint64_t ITERATIONS = 500000000;

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "cwambo.h"
+#include "phipscutil.h"
 
 void unsigned_int_printer(void * ptr);
 
