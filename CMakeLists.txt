@@ -1,5 +1,9 @@
-cmake_minimum_required(VERSION 3.17)
-project("phipscutil - Phips C utility library")
+cmake_minimum_required(VERSION 3.0)
+project("phipscutil - Phips C utility library"
+        VERSION 0.0.1
+        DESCRIPTION "Utility library for C projects. I did this project mainly for fun and educational reasons."
+        HOMEPAGE_URL "https://github.com/phip1611/libphipscutil"
+)
 
 set(CMAKE_C_STANDARD 11)
 
