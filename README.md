@@ -46,11 +46,13 @@ target_link_libraries(example phipscutil)
 #### C code
 ```c
 #include <stdio.h>
-#include <phipscutil/phipscutil.h>
+// phipscutil-${PROJECT_VERSION}
+#include <phipscutil-0.0.1/phipscutil.h>
 
 // or in C++ project:
 extern "C" {
-    #include <phipscutil/phipscutil.h>
+    // phipscutil-${PROJECT_VERSION}
+    #include <phipscutil-0.0.1/phipscutil.h>
 }
 
 void unsigned_int_printer(void * ptr);

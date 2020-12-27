@@ -15,7 +15,9 @@ set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Werror")
 
 # set(libname libphipscutil)
 # "lib" prefix is added automatically during buildtime!
-set(libname phipscutil)
+# The library will be available via "#include <phipscutil-0.0.1/phipscutil.h>"
+# for example!
+set(libname "phipscutil-${CMAKE_PROJECT_VERSION}")
 set(library_include_dir ${PROJECT_SOURCE_DIR}/lib/inc)
 
 add_subdirectory(benches)
