@@ -31,6 +31,15 @@ and benchmarks in `./build/`.
 
 ### Example
 You can find more examples in `examples/` directory.
+
+#### CMake Setup
+```cmake
+add_executable(example main.cpp)
+target_include_directories(example PRIVATE /usr/local/include)
+target_link_directories(example PRIVATE /usr/local/lib)
+target_link_libraries(example phipscutil)
+```
+#### C code
 ```c
 #include <stdio.h>
 #include <phipscutil/phipscutil.h>
