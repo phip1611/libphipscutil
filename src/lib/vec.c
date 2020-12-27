@@ -2,14 +2,14 @@
 #include <stdio.h>
 #include "vec.h"
 
-__always_inline struct vec *_vec_new(size_t itemsize) {
+inline struct vec *_vec_new(size_t itemsize) {
     struct vec *vec = malloc(sizeof(struct vec));
     vec->is_heap_allocated = 1;
     _vec_init(vec, itemsize);
     return vec;
 }
 
-__always_inline void _vec_init(struct vec *vec, size_t itemsize) {
+inline void _vec_init(struct vec *vec, size_t itemsize) {
     vec->item_size = itemsize;
     vec->size = 0;
     vec->data = NULL;
@@ -18,7 +18,7 @@ __always_inline void _vec_init(struct vec *vec, size_t itemsize) {
 }
 
 // Adds VEC_GOODSIZE_ELEMENTS to the data of the vector.
-__always_inline void _vec_grow(struct vec *vec) {
+inline void _vec_grow(struct vec *vec) {
     // fprintf(stderr, "vec: _vec_grow invoked\n");
     // during initialization of vector
     if (vec->data == NULL) {
@@ -36,7 +36,7 @@ __always_inline void _vec_grow(struct vec *vec) {
     }
 }
 
-__always_inline  void vec_push(struct vec *vec, u_int64_t val) {
+inline  void vec_push(struct vec *vec, u_int64_t val) {
     if (vec->size == vec->capacity) {
         _vec_grow(vec);
     }
@@ -74,7 +74,7 @@ __always_inline  void vec_push(struct vec *vec, u_int64_t val) {
     vec->size++;
 }
 
-__always_inline void vec_print(struct vec *vec, void (item_print_fn)(void *)) {
+inline void vec_print(struct vec *vec, void (item_print_fn)(void *)) {
     printf("Vec {\n");
     printf("    size: %ld\n", vec->size);
     printf("    capacity: %ld\n", vec->capacity);
@@ -94,7 +94,7 @@ __always_inline void vec_print(struct vec *vec, void (item_print_fn)(void *)) {
     printf("}\n");
 }
 
-__always_inline void *vec_get(struct vec *vec, uint32_t index) {
+inline void *vec_get(struct vec *vec, uint32_t index) {
     assert(index <= vec->size && "The index is out of bounds");
     switch (vec->item_size) {
         case 1: // 1 byte
@@ -120,7 +120,7 @@ __always_inline void *vec_get(struct vec *vec, uint32_t index) {
     return NULL;
 }
 
-__always_inline void vec_free(struct vec *vec, void (item_free_fn)(void *)) {
+inline void vec_free(struct vec *vec, void (item_free_fn)(void *)) {
     if (item_free_fn != NULL) {
         for (unsigned long i = 0; i < vec->size; i++) {
             item_free_fn(
@@ -135,30 +135,30 @@ __always_inline void vec_free(struct vec *vec, void (item_free_fn)(void *)) {
     }
 }
 
-__always_inline void vec_clear(struct vec * vec, uint8_t overwrite_mem) {
+inline void vec_clear(struct vec * vec, uint8_t overwrite_mem) {
     if (overwrite_mem) {
         memset(vec->data, 0, vec->size);
     }
     vec->size = 0;
 }
 
-__always_inline uint64_t vec_get_size(struct vec *vec) {
+inline uint64_t vec_get_size(struct vec *vec) {
     return vec->size;
 }
 
-__always_inline uint8_t vec_get_item_size(struct vec *vec) {
+inline uint8_t vec_get_item_size(struct vec *vec) {
     return vec->item_size;
 }
 
-__always_inline uint64_t vec_get_capacity(struct vec *vec) {
+inline uint64_t vec_get_capacity(struct vec *vec) {
     return vec->capacity;
 }
 
-__always_inline uint16_t vec_get_elements_increase(struct vec * vec) {
+inline uint16_t vec_get_elements_increase(struct vec * vec) {
     return vec->elements_increase;
 }
 
-__always_inline void vec_set_elements_increase(struct vec * vec, uint16_t new_value) {
+inline void vec_set_elements_increase(struct vec * vec, uint16_t new_value) {
     vec->elements_increase = new_value;
 }
 
