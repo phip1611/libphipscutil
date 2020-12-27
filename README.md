@@ -31,7 +31,7 @@ and benchmarks in `./build/`.
 
 ### Example
 You can find more examples in `examples/` directory.
-```
+```c
 #include <stdio.h>
 #include <phipscutil/phipscutil.h>
 
