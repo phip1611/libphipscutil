@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
-
 # fail fast if build or tests fail!
 
 set -e
 
-cmake CMakeLists.txt -B build
+# 8 jobs/threads
+# You can change "Release" to "Debug"
+cmake -j 8 -DCMAKE_BUILD_TYPE=Release CMakeLists.txt -B build
 cd build
 make
 

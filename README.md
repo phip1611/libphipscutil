@@ -22,11 +22,15 @@ when adding massive small data (u8).
 
 ### How to use
 Download code via git or download it as ZIP.
-Execute `sh build_n_install.sh`. On UNIX systems
+Execute:
+- `$ sh build.sh`
+- and if you want: `$ [sudo] install.sh`
+  
+On UNIX systems
 header files will be installed into `/usr/local/include/phipscutil`
 and the shared object (dynlib) into `/usr/local/lib`.
-If you run `sh build[_n_install].sh` you will find examples
-and benchmarks in `./build/`.
+If you run `sh build.sh` you will find examples
+and benchmarks in `./build/` as well.
 
 
 ### Example
