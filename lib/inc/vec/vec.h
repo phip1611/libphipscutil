@@ -7,7 +7,7 @@
 
 /// Each vector can store by default 1024 elements.
 /// After each 1024 elements, 1024 more are added.
-static const unsigned VEC_GOODSIZE_ELEMENTS = 1024;
+const unsigned VEC_GOODSIZE_ELEMENTS = 1024;
 
 // Dynamically growing-only vector. Elements can't be removed.
 // All "vec_" functions are public interface. All "_vec_" functions

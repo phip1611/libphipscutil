@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+// for PRId64 to have cross-platform (Mac/Linux)
+// printing/formatting string
+#include <inttypes.h>
+
 
 #include "vec/vec.h"
 
@@ -78,11 +82,11 @@ inline  void vec_push(struct vec *vec, u_int64_t val) {
 
 inline void vec_print(struct vec *vec, void (item_print_fn)(void *)) {
     printf("Vec {\n");
-    printf("    size: %ld\n", vec->size);
-    printf("    capacity: %ld\n", vec->capacity);
+    printf("    size: %"PRId64"\n", vec->size);
+    printf("    capacity: %"PRId64"\n", vec->capacity);
     printf("    item_size: %d\n", vec->item_size);
     if (item_print_fn == NULL) {
-        printf("    data: [<%ld entries>]\n", vec->size);
+        printf("    data: [<%"PRId64" entries>]\n", vec->size);
     } else {
         printf("    data: [\n");
         for (unsigned long i = 0; i < vec->size; i++) {

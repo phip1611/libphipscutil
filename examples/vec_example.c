@@ -1,4 +1,8 @@
 #include <stdio.h>
+// for PRId64 to have cross-platform (Mac/Linux)
+// printing/formatting string
+#include <inttypes.h>
+
 #include "phipscutil.h"
 
 void unsigned_int_printer(void * ptr);
@@ -27,18 +31,18 @@ int main() {
     vec_print(vec_h_1, unsigned_int_printer);
     vec_print(vec_h_2, NULL);
 
-    printf("foreach begin: should print %lu items\n", vec_get_size(vec_h_1));
+    printf("foreach begin: should print %"PRId64" items\n", vec_get_size(vec_h_1));
 
     // ENCAPSULATE EACH FOREACH IN A NEW BLOCK IF YOU WANT TO REUSE THE SAME
     // VARIABLE NAMES MULTIPLE TIMES ("entry", "index").
     {
         vec_foreach(vec_h_1, unsigned int, entry, index) {
-            printf("%lu => %d\n", index, *entry);
+            printf("%"PRId64" => %d\n", index, *entry);
         };
     }
     {
         vec_foreach(vec_h_2, unsigned int, entry, index) {
-            printf("%lu => %d\n", index, *entry);
+            printf("%"PRId64" => %d\n", index, *entry);
         };
     }
 
