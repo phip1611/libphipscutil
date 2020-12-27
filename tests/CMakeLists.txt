@@ -1,5 +1,3 @@
-set(CMAKE_CXX_STANDARD 20)
-
 # this test is .cpp because C doesn't have binary integer literals (0b..)
 add_executable(cpp_vec_test cpp_vec_test.cpp)
 target_include_directories(cpp_vec_test PRIVATE ${library_include_dir})

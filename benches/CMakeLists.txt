@@ -1,5 +1,3 @@
-set(CMAKE_CXX_STANDARD 20)
-
 add_executable(cpp_vec_vs_libphipscutil_vec_u64
         cpp_vec_vs_libphipscutil_vec_u64.cpp
 )

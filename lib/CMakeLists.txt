@@ -1,6 +1,3 @@
-set(CMAKE_C_STANDARD 11)
-
-
 # all header files in "inc" var
 set(inc
         # I don't know why but here "lib" prefix (absolute project path)
