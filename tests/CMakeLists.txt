@@ -1,6 +1,13 @@
-set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 
-add_executable(vec_test vec_test.c)
-target_include_directories(vec_test PRIVATE ${library_include_dir})
+# this test is .cpp because C doesn't have binary integer literals (0b..)
+add_executable(cpp_vec_test cpp_vec_test.cpp)
+target_include_directories(cpp_vec_test PRIVATE ${library_include_dir})
 # cmake will know here about the library "phipscutil"
-target_link_libraries(vec_test ${libname})
+target_link_libraries(cpp_vec_test ${libname})
+
+###########################
+add_executable(c_vec_test c_vec_test.c)
+target_include_directories(c_vec_test PRIVATE ${library_include_dir})
+# cmake will know here about the library "phipscutil"
+target_link_libraries(c_vec_test ${libname})
