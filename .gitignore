@@ -6,3 +6,4 @@ c_vector
 Makefile
 *.cmake
 .idea
+build/

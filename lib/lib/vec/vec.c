@@ -1,6 +1,9 @@
 #include <string.h>
 #include <stdio.h>
-#include "vec.h"
+#include <stdlib.h>
+#include <assert.h>
+
+#include "vec/vec.h"
 
 inline struct vec *_vec_new(size_t itemsize) {
     struct vec *vec = malloc(sizeof(struct vec));
@@ -61,7 +64,6 @@ inline  void vec_push(struct vec *vec, u_int64_t val) {
             u32_data_ptr[vec->size] = val;
             break;
         }
-            break;
         case 8: // 8 byte, 64bit
         {
             uint64_t *u64_data_ptr = (uint64_t *) vec->data;
@@ -76,11 +78,11 @@ inline  void vec_push(struct vec *vec, u_int64_t val) {
 
 inline void vec_print(struct vec *vec, void (item_print_fn)(void *)) {
     printf("Vec {\n");
-    printf("    size: %ld\n", vec->size);
-    printf("    capacity: %ld\n", vec->capacity);
+    printf("    size: %lld\n", vec->size);
+    printf("    capacity: %lld\n", vec->capacity);
     printf("    item_size: %d\n", vec->item_size);
     if (item_print_fn == NULL) {
-        printf("    data: [<%ld entries>]\n", vec->size);
+        printf("    data: [<%lld entries>]\n", vec->size);
     } else {
         printf("    data: [\n");
         for (unsigned long i = 0; i < vec->size; i++) {

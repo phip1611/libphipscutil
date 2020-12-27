@@ -85,7 +85,7 @@ void vec_free(struct vec * vec, void (item_free_fn)(void*));
  * Clears the vector (sets the stored items to zero). The vector keeps it's capacity.
  * @param vec Vector
  * @param overwrite_mem whether all used memory should be zeroed.
- */
+ */ __unused
 void vec_clear(struct vec * vec, uint8_t overwrite_mem);
 
 /**

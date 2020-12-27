@@ -27,18 +27,18 @@ int main() {
     vec_print(vec_h_1, unsigned_int_printer);
     vec_print(vec_h_2, NULL);
 
-    printf("foreach begin: should print %ld items\n", vec_get_size(vec_h_1));
+    printf("foreach begin: should print %lld items\n", vec_get_size(vec_h_1));
 
     // ENCAPSULATE EACH FOREACH IN A NEW BLOCK IF YOU WANT TO REUSE THE SAME
     // VARIABLE NAMES MULTIPLE TIMES ("entry", "index").
     {
         vec_foreach(vec_h_1, unsigned int, entry, index) {
-            printf("%ld => %d\n", index, *entry);
+            printf("%lld => %d\n", index, *entry);
         };
     }
     {
         vec_foreach(vec_h_2, unsigned int, entry, index) {
-            printf("%ld => %d\n", index, *entry);
+            printf("%lld => %d\n", index, *entry);
         };
     }
 

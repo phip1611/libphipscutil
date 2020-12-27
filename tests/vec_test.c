@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "phipscutil.h"
 
 int main() {
@@ -34,6 +35,8 @@ int main() {
     uint64_t * u64ptr_1 = vec_get(u64_vec, 1);
     assert(*u64ptr_0 == 0x000000000000000F && "Should equal 0x000000000000000F");
     assert(*u64ptr_1 == 0xF000000000000000 && "Should equal 0xF000000000000000");
+
+    printf("Process exited with 0: all tests are fine\n");
 }
 
 
