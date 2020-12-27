@@ -48,11 +48,18 @@ target_link_libraries(example phipscutil)
 #include <stdio.h>
 // phipscutil-${PROJECT_VERSION}
 #include <phipscutil-0.0.1/phipscutil.h>
+// for PRId64 to have cross-platform (Mac/Linux)
+// printing/formatting string
+#include <inttypes.h>
 
 // or in C++ project:
 extern "C" {
     // phipscutil-${PROJECT_VERSION}
     #include <phipscutil-0.0.1/phipscutil.h>
+
+    // for PRId64 to have cross-platform (Mac/Linux)
+    // printing/formatting string
+    #include <inttypes.h>
 }
 
 void unsigned_int_printer(void * ptr);
