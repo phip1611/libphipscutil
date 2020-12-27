@@ -78,11 +78,11 @@ inline  void vec_push(struct vec *vec, u_int64_t val) {
 
 inline void vec_print(struct vec *vec, void (item_print_fn)(void *)) {
     printf("Vec {\n");
-    printf("    size: %lld\n", vec->size);
-    printf("    capacity: %lld\n", vec->capacity);
+    printf("    size: %ld\n", vec->size);
+    printf("    capacity: %ld\n", vec->capacity);
     printf("    item_size: %d\n", vec->item_size);
     if (item_print_fn == NULL) {
-        printf("    data: [<%lld entries>]\n", vec->size);
+        printf("    data: [<%ld entries>]\n", vec->size);
     } else {
         printf("    data: [\n");
         for (unsigned long i = 0; i < vec->size; i++) {
