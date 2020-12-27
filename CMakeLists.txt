@@ -23,21 +23,21 @@ target_include_directories(vec_example PRIVATE
 )
 target_link_libraries(vec_example phipscutil)
 ##############################################################
-add_executable(cpp_vec_vs_cwambo_vec_u64
-        src/benches/cpp_vec_vs_cwambo_vec_u64.cpp
+add_executable(cpp_vec_vs_libphipscutil_vec_u64
+        src/benches/cpp_vec_vs_libphipscutil_vec_u64.cpp
 )
-target_include_directories(cpp_vec_vs_cwambo_vec_u64 PRIVATE
+target_include_directories(cpp_vec_vs_libphipscutil_vec_u64 PRIVATE
         src/lib
 )
-target_link_libraries(cpp_vec_vs_cwambo_vec_u64 phipscutil)
+target_link_libraries(cpp_vec_vs_libphipscutil_vec_u64 phipscutil)
 ##############################################################
-add_executable(cpp_vec_vs_cwambo_vec_u8
-        src/benches/cpp_vec_vs_cwambo_vec_u8.cpp
+add_executable(cpp_vec_vs_libphipscutil_vec_u8
+        src/benches/cpp_vec_vs_libphipscutil_vec_u8.cpp
 )
-target_include_directories(cpp_vec_vs_cwambo_vec_u8 PRIVATE
+target_include_directories(cpp_vec_vs_libphipscutil_vec_u8 PRIVATE
         src/lib
 )
-target_link_libraries(cpp_vec_vs_cwambo_vec_u8 phipscutil)
+target_link_libraries(cpp_vec_vs_libphipscutil_vec_u8 phipscutil)
 ##############################################################
 add_executable(vec_test
         src/test/vec_test.c

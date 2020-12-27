@@ -1,5 +1,5 @@
-#ifndef _CWAMBO_H
-#define _CWAMBO_H
+#ifndef _PHIPSCUTIL_H
+#define _PHIPSCUTIL_H
 
 #include "vec.h"
 

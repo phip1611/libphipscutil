@@ -12,29 +12,29 @@ extern "C" {
 uint64_t ITERATIONS = 200000000;
 
 int main() {
-    struct vec cwambo_vec {};
-    vec_stack_init(cwambo_vec, uint64_t);
+    struct vec libphipscutil_vec {};
+    vec_stack_init(libphipscutil_vec, uint64_t);
     // with this option we are faster than the std vector
-    // vec_set_elements_increase(&cwambo_vec, 0x4000); // 16KB
+    // vec_set_elements_increase(&libphipscutil_vec, 0x4000); // 16KB
     std::vector<uint64_t> cppvec;
 
-    // cwambo vector
+    // libphipscutil vector
     {
         // Record start time
         auto start = std::chrono::high_resolution_clock::now();
 
         for (uint64_t i = 0; i < ITERATIONS; i++) {
-            vec_push(&cwambo_vec, i);
+            vec_push(&libphipscutil_vec, i);
         }
 
         // Record end time
         auto finish = std::chrono::high_resolution_clock::now();
-        assert(vec_get_size(&cwambo_vec) == ITERATIONS);
+        assert(vec_get_size(&libphipscutil_vec) == ITERATIONS);
         auto duration = std::chrono::duration_cast<std::chrono::microseconds> (finish - start);
         double us = duration.count();
         double s = us / 1000000;
 
-        std::cout << "Inserting " << ITERATIONS << " (uint64_t) Elements into cwambo vector took : " << s << "s" << std::endl;
+        std::cout << "Inserting " << ITERATIONS << " (uint64_t) Elements into libphipscutil vector took : " << s << "s" << std::endl;
     }
 
     // std c++ vector
